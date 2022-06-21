@@ -1,0 +1,68 @@
+<h1 class="text-center" spaMarcaTexto corDeFundo="orange" corDoTexto="white">Contador</h1>
+<br>
+<!-- Diretivas de atributos-->
+<div [ngStyle]="{background: count<5 ? 'red' : 'green'}" [ngClass]="{custom: count>5}">
+  <h2 class="text-center">Contador: {{count}}</h2>
+</div>
+
+<!-- Diretivas Estruturais -->
+<br>
+<h2 *ngIf="count > 7; else menor">O contador passou de 7!</h2>
+
+<ng-template #menor>
+  <h2>O contador é menor que 7!</h2>
+</ng-template>
+
+<ul [ngSwitch]="count" class="list-group mx-auto col-3">
+  <li class="list-group-item"
+  *ngSwitchCase="3"
+  >
+  É igual a 3
+</li>
+  <li class="list-group-item"
+  *ngSwitchCase="5"
+  >
+  É igual a 5
+</li>
+  <li class="list-group-item"
+  *ngSwitchCase="8"
+  >
+  É igual a 8
+</li>
+  <li class="list-group-item"
+  *ngSwitchDefault=""
+  >
+  Esse é o default
+</li>
+
+<spa-list-people [list]="pessoas"></spa-list-people>
+
+</ul>
+
+<ul class="list-group my-3 mx-auto col-3">
+  <li class="list-group-item" *ngFor="let pessoa of pessoas"> 
+    O nome da pessoa é {{pessoa.firstName}}  {{pessoa.lastName}} e ela tem a idade {{pessoa.age}}.
+  </li>
+</ul>
+
+<div class="col-4 mx-auto mb-2">
+  <h2 spaMarcaTexto corDeFundo="purple" corDoTexto="white">{{nome}}</h2>
+  <button class="btn btn-success" (click)="clicou('Nauderick Noob')">Click</button>
+</div>
+
+<div class="col-4 mx-auto">
+  <input type="text" placeholder="Digite alguma coisa...." class="form-control" [(ngModel)]="text">
+  <h4>Saida: {{text}}</h4>
+</div>
+
+<br>
+
+<div class="container my-5">
+  <div class="row d-flex align-items-center justify-content-center">
+    <h2 class="text-center">LISTAGEM DE PERSONAGENS RICK AND MORTY</h2>
+    <div class="col-12">
+      <spa-list-api></spa-list-api>
+    </div>
+  </div>
+</div>
+
