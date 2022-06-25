@@ -19,6 +19,9 @@ import { MatListModule } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
+import { PipesExampleComponent } from './pages/pipes-example/pipes-example.component';
+import { UpperCasePipe } from '@angular/common';
+import { PrintListPipe } from './print-list.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
     LifeCycleComponent,
     TodoListComponent,
     TodoItemComponent,
+    PipesExampleComponent,
+    PrintListPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [UpperCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
